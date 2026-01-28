@@ -53,9 +53,8 @@ Feed_Code/
 ├── intent-telemetry-sdk/
 │   ├── sdk/              # TypeScript SDK
 │   ├── intelligence/     # Python backend
-│   ├── examples/         # Demo applications
-│   └── docs/             # Documentation
-└── .github/              # CI/CD workflows
+    ├── examples/         # Demo applications
+    └── docs/             # Documentation
 ```
 
 ## Privacy Guarantees

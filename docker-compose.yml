@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  intelligence-api:
+    build:
+      context: ./intent-telemetry-sdk/intelligence
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - ALLOWED_ORIGINS=*
+    volumes:
+      - ./intent-telemetry-sdk/intelligence:/app
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
+
+  demo-app:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./intent-telemetry-sdk/examples/demo-app:/usr/share/nginx/html:ro
+      - ./intent-telemetry-sdk/sdk/dist:/usr/share/nginx/html/sdk/dist:ro
+    depends_on:
+      - intelligence-api

@@ -10,9 +10,7 @@ A lightweight, privacy-preserving SDK for capturing user interaction telemetry a
 - [Architecture](./intent-telemetry-sdk/docs/ARCHITECTURE.md)
 - [Deployment Guide](./intent-telemetry-sdk/docs/DEPLOYMENT.md)
 - [API Reference](./intent-telemetry-sdk/docs/API.md)
-- [Changelog](./intent-telemetry-sdk/CHANGELOG.md)
-- [ecurity Policy](./intent-telemetry-sdk/SECURITY.md)
-- [Contributing](./intent-telemetry-sdk/CONTRIBUTING.md)
+
 
 ## Features
 

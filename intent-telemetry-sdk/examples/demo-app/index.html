@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechStore - Demo E-commerce</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-brand">
+          <h1>TechStore</h1>
+          <span class="badge">Demo</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#products" data-nav="products">Products</a></li>
+          <li><a href="#cart" data-nav="cart">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+          <li><a href="#account" data-nav="account">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Home Section -->
+    <section id="home" class="section active">
+      <div class="container">
+        <div class="hero">
+          <h2 class="hero-title">Welcome to TechStore</h2>
+          <p class="hero-subtitle">Discover the latest in technology</p>
+          <button class="btn btn-primary" onclick="navigateTo('products')">
+            Shop Now
+          </button>
+        </div>
+
+        <!-- Intent SDK Demo Controls -->
+        <div class="sdk-controls">
+          <h3>🎯 Intent SDK Demo Controls</h3>
+          <p>This demo showcases the Intent Telemetry SDK in action. Try different user flows to generate telemetry
+            data!</p>
+          <div class="control-grid">
+            <button class="btn btn-outline" onclick="simulateHappyPath()">
+              ✅ Simulate Happy Path
+            </button>
+            <button class="btn btn-outline" onclick="simulateFriction()">
+              ⚠️ Simulate Friction
+            </button>
+            <button class="btn btn-outline" onclick="viewInsights()">
+              📊 View Insights
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2>Our Products</h2>
+        <div class="product-grid" id="product-grid">
+          <!-- Products will be loaded by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="section">
+      <div class="container">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items" class="cart-items">
+          <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div id="cart-total" class="cart-total" style="display: none;">
+          <h3>Total: $<span id="total-amount">0</span></h3>
+          <button class="btn btn-primary" onclick="navigateTo('checkout')">
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section id="checkout" class="section">
+      <div class="container">
+        <h2>Checkout</h2>
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="card">Credit Card</label>
+            <input type="text" id="card" name="card" placeholder="1234 5678 9012 3456" required />
+          </div>
+
+          <!-- Intentionally buggy button for demo -->
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Complete Purchase
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="navigateTo('cart')">
+            Back to Cart
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Account Section -->
+    <section id="account" class="section">
+      <div class="container">
+        <h2>My Account</h2>
+        <div class="account-info">
+          <p>Welcome back! Manage your account here.</p>
+          <button class="btn btn-primary">View Orders</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Insights Modal -->
+  <div id="insights-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeInsights()">&times;</span>
+      <h2>📊 Session Insights</h2>
+      <div id="insights-content">
+        <p>Loading insights...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load SDK (built version in dist/) -->
+  <script src="../../sdk/dist/index.global.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
